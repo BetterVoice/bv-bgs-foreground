@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.bettervoice.phonegap.plugin.foregroundService"
+        version="1.0.0">
+
+    <name>Foreground Service Plugin</name>
+
+    <description>
+        Foreground Service to keep a Cordova Android app from getting killed. Also places a constant Notification in the notification bar.
+    </description>
+
+    <license>Apache 2.0</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+	<!-- Load in the core background service -->
+	<dependency id="com.red_folder.phonegap.plugin.backgroundservice" url="https://github.com/Red-Folder/bgs-core.git"/>
+
+    <!-- android -->
+    <platform name="android">
+
+		<asset src="www/foregroundService.html" target="foregroundService.html" />
+
+		<js-module src="www/foregroundService.js" name="ForegroundService">
+			<clobbers target="cordova.plugins.foregroundService" />
+		</js-module>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+  
+            <service android:name="com.bettervoice.phonegap.plugin.foregroundService.ForegroundService">
+                <intent-filter>         
+                    <action android:name="com.bettervoice.phonegap.plugin.foregroundService.ForegroundService"/> 
+                </intent-filter>     
+            </service>
+            
+        </config-file>
+        <source-file src="src/android/ForegroundService.java" target-dir="src/com/bettervoice/phonegap/plugin/foregroundService" />
+    </platform>
+	
+</plugin>
