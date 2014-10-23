@@ -84,7 +84,7 @@ public class ForegroundService extends BackgroundService {
 
         int icon = R.drawable.star_big_on;
         int normalIcon = getResources().getIdentifier("icon", "drawable", getPackageName());
-        int notificationIcon = getResources().getIdentifier("notificationIcon", "drawable", getPackageName());         
+        int notificationIcon = getResources().getIdentifier("notificationicon", "drawable", getPackageName());         
         if(notificationIcon != 0) {
         	Log.d("ONSTARTCOMMAND", "Found Custom Notification Icon!");
         	icon = notificationIcon;
