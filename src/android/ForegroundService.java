@@ -123,7 +123,7 @@ public class ForegroundService extends BackgroundService {
 		Log.d("ONSTARTCOMMAND", "intent" + intent);
 
         startForeground(notif_id, getActivityNotification(this.notificationTitle, this.notificationText));
-		return START_REDELIVER_INTENT;  
+		return START_NOT_STICKY;
 	}
 
 	@TargetApi(16)
